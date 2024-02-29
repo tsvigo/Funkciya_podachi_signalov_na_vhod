@@ -1,0 +1,1 @@
+# Funkciya_podachi_signalov_na_vhod
