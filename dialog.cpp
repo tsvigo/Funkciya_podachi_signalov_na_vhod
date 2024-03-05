@@ -4,6 +4,10 @@
 #include <QColor>
 #include <QFile>
 #include <QTextStream>
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+#include <QProcess>
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+/// 
 QString s;
 Dialog::Dialog(QWidget *parent) : QDialog(parent), ui(new Ui::Dialog) {
   ui->setupUi(this);
@@ -13,8 +17,11 @@ Dialog::~Dialog() { delete ui; }
 // считываем картинку:
 void Dialog::on_pushButton_clicked() {
   ui->textEdit->clear();
-  QImage img("/home/viktor/my_projects_qt_2/Funkciya_podachi_signalov_na_vhod/"
-             "1.bmp"); // входящий файл изображения
+  QImage img(
+//      "/home/viktor/my_projects_qt_2/Funkciya_podachi_signalov_na_vhod/"
+//             "1.bmp"
+      "/home/viktor/Изображения/edinitsi/1-1.bmp"
+             ); // входящий файл изображения
 
   // /home/viktor/Downloads/Airplane.bmp
   // /home/viktor/my_projects_qt_2/qimage/1.bmp
@@ -48,6 +55,7 @@ void Dialog::on_pushButton_clicked() {
   //      ui->textEdit->append(QString::number(z));
   //    }
   // Заполнили текстовое первое поле
+   QProcess().execute("/home/viktor/my_scripts_2/zvuk.sh");
 }
 
 void Dialog::on_pushButton_2_clicked() {
@@ -66,9 +74,14 @@ void Dialog::on_pushButton_2_clicked() {
   /// Тут надо добавить нейроны со 101 по 201 из
   ///  /home/viktor/my_projects_qt_2/build-zapolnenie_nejronov_sluchajnymi_nachalnymi_zaryadami_4-Desktop_Qt_5_12_12_GCC_64bit-Debug/neyroni.txt
   ///
-  QFile file_n("/home/viktor/my_projects_qt_2/"
-               "build-zapolnenie_nejronov_sluchajnymi_nachalnymi_zaryadami_4-"
-               "Desktop_Qt_5_12_12_GCC_64bit-Debug/neyroni.txt");
+  QFile file_n(
+//      "/home/viktor/my_projects_qt_2/"
+//               "build-zapolnenie_nejronov_sluchajnymi_nachalnymi_zaryadami_4-"
+//               "Desktop_Qt_5_12_12_GCC_64bit-Debug/neyroni.txt"
+      
+      "/home/viktor/my_projects_qt_2/Sgenerirovannye_fayly/1-1/neyroni.txt"
+      
+      );
   // заряды нейронов
   if (!file_n.open(QIODevice::ReadOnly | QIODevice::Text))
     return;
@@ -93,8 +106,12 @@ void Dialog::on_pushButton_2_clicked() {
   file_n.close();
   /// тут надо записать обновлённый файл neyroni.txt с сигналами-рисунком
   ///
-  QFile file3("/home/viktor/my_projects_qt_2/Funkciya_podachi_signalov_na_vhod/"
-              "neyroni_i_signal.txt"); // выходной файл
+  QFile file3(
+//      "/home/viktor/my_projects_qt_2/Funkciya_podachi_signalov_na_vhod/"
+//              "neyroni_i_signal.txt"
+      "/home/viktor/my_projects_qt_2/Sgenerirovannye_fayly/1-1/neyroni_i_signal.txt"
+      
+      ); // выходной файл
   if (!file3.open(QIODevice::WriteOnly | QIODevice::Text))
     return;
   QTextStream out3(&file3); //поток для записи текста
@@ -102,4 +119,5 @@ void Dialog::on_pushButton_2_clicked() {
               ->toPlainText(); // записали картинку в neyroni_i_signal.txt
 
   file3.close();
+   QProcess().execute("/home/viktor/my_scripts_2/zvuk.sh");
 }
