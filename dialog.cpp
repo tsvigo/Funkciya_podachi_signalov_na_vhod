@@ -20,7 +20,19 @@ void Dialog::on_pushButton_clicked() {
   QImage img(
 //      "/home/viktor/my_projects_qt_2/Funkciya_podachi_signalov_na_vhod/"
 //             "1.bmp"
-      "/home/viktor/Изображения/edinitsi/1-1.bmp"
+      
+      
+     // "/home/viktor/Изображения/edinitsi/1-1.bmp"
+      
+     // "/home/viktor/my_projects_qt_2/Sgenerirovannye_fayly/0/0.bmp"
+      
+     // "/home/viktor/my_projects_qt_2/Sgenerirovannye_fayly/0-2/0.bmp"
+      
+    //  "/home/viktor/my_projects_qt_2/Sgenerirovannye_fayly/1-1(2)/1-1.bmp"
+      "/home/viktor/my_projects_qt_2/Sgenerirovannye_fayly/0-2/0.bmp"
+      
+      //NOTE: файл изображения bmp
+      
              ); // входящий файл изображения
 
   // /home/viktor/Downloads/Airplane.bmp
@@ -79,7 +91,15 @@ void Dialog::on_pushButton_2_clicked() {
 //               "build-zapolnenie_nejronov_sluchajnymi_nachalnymi_zaryadami_4-"
 //               "Desktop_Qt_5_12_12_GCC_64bit-Debug/neyroni.txt"
       
-      "/home/viktor/my_projects_qt_2/Sgenerirovannye_fayly/1-1/neyroni.txt"
+  //    "/home/viktor/my_projects_qt_2/Sgenerirovannye_fayly/1-1/neyroni.txt"
+      
+    //  "/home/viktor/my_projects_qt_2/Sgenerirovannye_fayly/0/neyroni.txt"
+    //  "/home/viktor/my_projects_qt_2/Sgenerirovannye_fayly/1/neurons_and_signal-2.txt"
+    //  "/home/viktor/my_projects_qt_2/Sgenerirovannye_fayly/0-2/neurons_and_signal.txt"
+    "/home/viktor/my_projects_qt_2/Sgenerirovannye_fayly/1-1(2)/neyroni_i_signal.txt"
+      // тут надо на уже сделанный прочитать
+      
+      //NOTE: файл neyroni.txt
       
       );
   // заряды нейронов
@@ -109,7 +129,14 @@ void Dialog::on_pushButton_2_clicked() {
   QFile file3(
 //      "/home/viktor/my_projects_qt_2/Funkciya_podachi_signalov_na_vhod/"
 //              "neyroni_i_signal.txt"
-      "/home/viktor/my_projects_qt_2/Sgenerirovannye_fayly/1-1/neyroni_i_signal.txt"
+      
+   //   "/home/viktor/my_projects_qt_2/Sgenerirovannye_fayly/1-1/neyroni_i_signal.txt"
+      
+   //   "/home/viktor/my_projects_qt_2/Sgenerirovannye_fayly/0/neyroni_i_signal.txt"
+    //  "/home/viktor/my_projects_qt_2/Sgenerirovannye_fayly/1-1(2)/neyroni_i_signal.txt"
+       "/home/viktor/my_projects_qt_2/Sgenerirovannye_fayly/0-2/neurons_and_signal.txt"
+      // перезаписать с новым сигналом
+      //NOTE: файл neyroni_i_signal.txt
       
       ); // выходной файл
   if (!file3.open(QIODevice::WriteOnly | QIODevice::Text))
