@@ -6,9 +6,17 @@
 #include <QTextStream>
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 #include <QProcess>
+#include <QFileDialog>
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 /// 
 QString s;
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+/// \brief Dialog::Dialog
+/// \param parent
+QString  Nazvaniye_fayla_s_neyronami_i_signalom ;
+QString  Nazvaniye_fayla_s_bmp;
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+/// 
 Dialog::Dialog(QWidget *parent) : QDialog(parent), ui(new Ui::Dialog) {
   ui->setupUi(this);
 }
@@ -17,6 +25,14 @@ Dialog::~Dialog() { delete ui; }
 // считываем картинку:
 void Dialog::on_pushButton_clicked() {
   ui->textEdit->clear();
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+///     
+    Nazvaniye_fayla_s_bmp = QFileDialog::getOpenFileName(this,
+  tr("Open bmp"), "/home/viktor/Изображения/edinitsi/", tr("Txt Files (*.bmp)"));
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+  /// \brief img
+  /// \return 
+  ///  
   QImage img(
 //      "/home/viktor/my_projects_qt_2/Funkciya_podachi_signalov_na_vhod/"
 //             "1.bmp"
@@ -29,8 +45,8 @@ void Dialog::on_pushButton_clicked() {
      // "/home/viktor/my_projects_qt_2/Sgenerirovannye_fayly/0-2/0.bmp"
       
     //  "/home/viktor/my_projects_qt_2/Sgenerirovannye_fayly/1-1(2)/1-1.bmp"
-      "/home/viktor/my_projects_qt_2/Sgenerirovannye_fayly/0-2/0.bmp"
-      
+    //  "/home/viktor/my_projects_qt_2/Sgenerirovannye_fayly/0-2/0.bmp"
+      Nazvaniye_fayla_s_bmp.toStdString().c_str()
       //NOTE: файл изображения bmp
       
              ); // входящий файл изображения
@@ -71,6 +87,20 @@ void Dialog::on_pushButton_clicked() {
 }
 
 void Dialog::on_pushButton_2_clicked() {
+//    QPushButton *openFileNameButton =
+//        new QPushButton(tr("QFileDialog::get&OpenFileName()"));
+    
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+/// 
+//QFileDialog::ExistingFile
+QFileDialog dialog(this);
+dialog.setFileMode(QFileDialog::ExistingFile);
+      Nazvaniye_fayla_s_neyronami_i_signalom = QFileDialog::getOpenFileName(this,
+ tr("Open последний текущий файл с нейронами и сигналами txt"), "/home/viktor/my_projects_qt_2/Sgenerirovannye_fayly", tr("Txt Files (*.txt)"));
+//dialog.
+/// 
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+///      
   // ui->textEdit->clear();
   //  QFile file("/home/viktor/my_projects_qt_2/Funkciya_podachi_signalov_na_vhod/"
   //             "out.txt"); // выходной файл
@@ -96,7 +126,8 @@ void Dialog::on_pushButton_2_clicked() {
     //  "/home/viktor/my_projects_qt_2/Sgenerirovannye_fayly/0/neyroni.txt"
     //  "/home/viktor/my_projects_qt_2/Sgenerirovannye_fayly/1/neurons_and_signal-2.txt"
     //  "/home/viktor/my_projects_qt_2/Sgenerirovannye_fayly/0-2/neurons_and_signal.txt"
-    "/home/viktor/my_projects_qt_2/Sgenerirovannye_fayly/1-1(2)/neyroni_i_signal.txt"
+   // "/home/viktor/my_projects_qt_2/Sgenerirovannye_fayly/1-1(2)/neyroni_i_signal.txt"
+        Nazvaniye_fayla_s_neyronami_i_signalom.toStdString().c_str()
       // тут надо на уже сделанный прочитать
       
       //NOTE: файл neyroni.txt
@@ -126,6 +157,11 @@ void Dialog::on_pushButton_2_clicked() {
   file_n.close();
   /// тут надо записать обновлённый файл neyroni.txt с сигналами-рисунком
   ///
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+  Nazvaniye_fayla_s_neyronami_i_signalom = QFileDialog::getOpenFileName(this,
+ tr("Куда записать файл с нейронами и сигналами txt"), "/home/viktor/my_projects_qt_2/Sgenerirovannye_fayly", tr("Txt Files (*.txt)"));
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+///  
   QFile file3(
 //      "/home/viktor/my_projects_qt_2/Funkciya_podachi_signalov_na_vhod/"
 //              "neyroni_i_signal.txt"
@@ -134,7 +170,10 @@ void Dialog::on_pushButton_2_clicked() {
       
    //   "/home/viktor/my_projects_qt_2/Sgenerirovannye_fayly/0/neyroni_i_signal.txt"
     //  "/home/viktor/my_projects_qt_2/Sgenerirovannye_fayly/1-1(2)/neyroni_i_signal.txt"
-       "/home/viktor/my_projects_qt_2/Sgenerirovannye_fayly/0-2/neurons_and_signal.txt"
+      // "/home/viktor/my_projects_qt_2/Sgenerirovannye_fayly/0-2/neurons_and_signal.txt"
+       Nazvaniye_fayla_s_neyronami_i_signalom.toStdString().c_str()
+      // перезаписался /home/viktor/my_projects_qt_2/Sgenerirovannye_fayly/0-2/neurons_and_signal.txt с сигналом 1-2
+      // а надо выбрать куда его сохранить
       // перезаписать с новым сигналом
       //NOTE: файл neyroni_i_signal.txt
       
