@@ -29,6 +29,7 @@ void Dialog::on_pushButton_clicked() {
 ///     
     Nazvaniye_fayla_s_bmp = QFileDialog::getOpenFileName(this,
   tr("Open bmp"), "/home/viktor/Изображения/edinitsi/", tr("Txt Files (*.bmp)"));
+  ui->label->setText (Nazvaniye_fayla_s_bmp);
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
   /// \brief img
   /// \return 
