@@ -67,10 +67,12 @@ void Dialog::on_pushButton_clicked() {
   //    for (int var = 1; var < kolichestvo; ++var) {
   //        img.pixel(var);
   //    }
-  int z;
+//  int z;
   for (int x = 0; x < img.width(); x++)
     for (int y = 0; y < img.height(); y++)
       ui->textEdit->append(QString::number(img.pixel(x, y)));
+      int lineCount = ui->textEdit->document()->blockCount();
+      ui->label_2->setText(QString::number(lineCount));
   //	    {
 
   //	    if (img.pixel(x, y) <= 8388607)
